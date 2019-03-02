@@ -1,11 +1,16 @@
 var MessagesView = {
-  $chats: $('#chats'),
+  $chat: $('#chat'),
 
   initialize: function() {
+    Parse.readAll(data => Message.addMessage(data.results));
   },
 
-  renderMessage: function () {
-    var message = MessageView.render(Message);
-    $(chats).append(message);
-  },
+  // render: function () {
+
+  // },
+
+  renderMessage: function (user) {
+    var message = MessageView.render(user);
+    $(chat).append(message);
+  }
 };
